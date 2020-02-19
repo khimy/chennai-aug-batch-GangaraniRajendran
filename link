@@ -1,3 +1,22 @@
+	Existing issue:
+		○ Orientation problem (tiff sample 13, image sample 8)
+		○ 1 or 2 columns not getting detected (tiff sample 3,4,8,9,10 and Image sample 4,6,7)
+		○ PDF issue
+		○ Column shift and merge for tables without lines or vertical lines
+		○ Last row not getting extracted because of the missing horizontal line in the end (tiff sample 9)
+		○ Text blocks are getting detected due to unwanted line in the end of the document (tiff sample 12)
+	
+	Known Issue:
+		○ Pytesseract issue
+		○ Logo/Header identified as table
+	
+
+
+
+
+
+
+
 
 https://stackoverflow.com/questions/51688973/image-preprocessing-for-ocr-tessaract
 
