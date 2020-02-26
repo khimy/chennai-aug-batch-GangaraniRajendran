@@ -1,14 +1,76 @@
-	Existing issue:
-		○ Orientation problem (tiff sample 13, image sample 8)
-		○ 1 or 2 columns not getting detected (tiff sample 3,4,8,9,10 and Image sample 4,6,7)
-		○ PDF issue
-		○ Column shift and merge for tables without lines or vertical lines
-		○ Last row not getting extracted because of the missing horizontal line in the end (tiff sample 9)
-		○ Text blocks are getting detected due to unwanted line in the end of the document (tiff sample 12)
+	2nd iteration of  testing for table with lines after bug fixing:
 	
-	Known Issue:
-		○ Pytesseract issue
-		○ Logo/Header identified as table
+		Scenarios Covered:
+			○ Table with proper horizontal and vertical lines
+			○ Table Skewed
+			○ Table with Blurred horizontal and vertical lines
+			○ Multiple tables in a page
+			○ Document Skewed
+			○ Merging same tables in continuous pages
+			○ Tables with only horizontal line in the heading
+	
+		Images:
+			Solved Issues(s)
+				§ Sample 8 --> Orientation problem (correct image is getting rotated)
+		
+			Persisting Issues
+				§ Sample 4,6,7 --> 1 or 2 columns not getting extracted
+				§ Sample 5 --> Not getting extracted properly (merged rows, missing rows) was working properly in the 1st iteration
+				§ Sample 13 -- No data extracted 
+				§ Sample 14 -- Not getting extracted
+		
+		PDF:
+			Solved Issues(s)
+				§ On the whole the extraction is not good.
+				
+			Persisting Issues
+				§ Sample 3, DAIMLER AG SSI --> Content of column mapped with wrong rows, due to which extra rows are added.
+				§ Sample 4,5 --> Rows are getting merged. (Image quality is very low)
+				§ Sample 6,9,12,13,14, --> Some table are not getting extracted
+				§ Sample 11 --> Some rows are missing
+				
+		
+		MEAG:
+			Solved Issues(s)
+				§ Column values getting shifted. Last 2 columns getting merged
+				§ Unwanted texts due to horizontal line near the table
+			
+			Persisting Issues
+				§ Content of column mapped with wrong rows, due to which extra rows are added
+				§ Headings missed out
+		
+		Tiff:
+			Solved Issues(s)
+				§ Sample 13 --> Orientation problem (correct image is getting rotated)
+		
+			Persisting Issues
+				§ Sample 3, 4, 8, 10 --> 1 or 2 columns not getting extracted
+				§ Sample 9 --> Last row not getting extracted because of the missing horizontal line
+				§ Sample 12 --> Text blocks are getting detected due to unwanted line in the end of the document
+		
+		Total Good Samples  : 23(previous 15)
+		
+		Addressed Issues:
+			○ Extra empty rows and columns
+			○ Underline and strikethrough issue
+			○ Extra rows and columns due to empty cells or split of rows
+			○ Orientation problem (tiff sample 13, image sample 8)
+			○ Unwanted texts due to horizontal line near the table
+			○ Column shift and merge for tables without lines or vertical lines
+			○ PDF issue (overall extraction)
+		
+		Persisting issues:
+			○ 1 or 2 columns not getting detected (tiff sample 3,4,8,9,10 and Image sample 4,6,7)
+			○ Last row not getting extracted because of the missing horizontal line in the end (tiff sample 9)
+			○ Text blocks are getting detected due to unwanted line in the end of the document (tiff sample 12)
+			○ Content of column mapped with wrong rows, due to which extra rows are added
+			○ Content of column mapped with wrong rows, due to which extra rows are added
+			○ Headings missed out (MEAG sample, with only horizontal line in header)
+		
+		Known Issues:
+			○ Pytesseract issue
+			○ Logo/Header identified as table
+
 	
 
 
