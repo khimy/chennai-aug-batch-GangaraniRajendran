@@ -1,75 +1,95 @@
-	2nd iteration of  testing for table with lines after bug fixing:
+3rd iteration of  testing for table with lines after bug fixing:
+
+	Scenarios Covered:
+		○ Table with proper horizontal and vertical lines
+		○ Table Skewed
+		○ Table with Blurred horizontal and vertical lines
+		○ Multiple tables in a page
+		○ Merging same tables in continuous pages
+		○ Tables with only horizontal line in the heading
+		○ Tables with missing horizontal line in the last row
+		○ Tables with strikethrough and underline
+
+	Images:
+		Solved Issues(s)
+			§ Sample 5 --> 1 or 2 columns not getting extracted
 	
-		Scenarios Covered:
-			○ Table with proper horizontal and vertical lines
-			○ Table Skewed
-			○ Table with Blurred horizontal and vertical lines
-			○ Multiple tables in a page
-			○ Document Skewed
-			○ Merging same tables in continuous pages
-			○ Tables with only horizontal line in the heading
+		Persisting Issues
+			§ Sample 6,7 --> 1 or 2 columns not getting extracted
+			§ Sample 5 --> Not getting extracted properly (merged rows, missing rows) was working properly in the 1st iteration
+			§ Sample 13 -- No data extracted 
+			§ Sample 14 -- Not getting extracted
 	
-		Images:
-			Solved Issues(s)
-				§ Sample 8 --> Orientation problem (correct image is getting rotated)
-		
-			Persisting Issues
-				§ Sample 4,6,7 --> 1 or 2 columns not getting extracted
-				§ Sample 5 --> Not getting extracted properly (merged rows, missing rows) was working properly in the 1st iteration
-				§ Sample 13 -- No data extracted 
-				§ Sample 14 -- Not getting extracted
-		
-		PDF:
-			Solved Issues(s)
-				§ On the whole the extraction is not good.
-				
-			Persisting Issues
-				§ Sample 3, DAIMLER AG SSI --> Content of column mapped with wrong rows, due to which extra rows are added.
-				§ Sample 4,5 --> Rows are getting merged. (Image quality is very low)
-				§ Sample 6,9,12,13,14, --> Some table are not getting extracted
-				§ Sample 11 --> Some rows are missing
-				
-		
-		MEAG:
-			Solved Issues(s)
-				§ Column values getting shifted. Last 2 columns getting merged
-				§ Unwanted texts due to horizontal line near the table
+	PDF:
+		Solved Issues(s)
+			§ On the whole the extraction is not good.
+			§ Content of column mapped with wrong rows, due to which extra rows are added.
 			
-			Persisting Issues
-				§ Content of column mapped with wrong rows, due to which extra rows are added
-				§ Headings missed out
+		Persisting Issues
+			§ Sample 14,13,9 --> Rows are getting merged. (Image quality is very low)
+			§ Sample 6,11,12,14 --> Some table are not getting extracted
+			§ Sample 8 --> Strikethrough texts are getting extracted
+	
+	MEAG:
+		Solved Issues(s)
+			§ Column values getting shifted. Last 2 columns getting merged
+			§ Unwanted texts due to horizontal line near the table
+			§ Content of column mapped with wrong rows, due to which extra rows are added
+			§ Headings missed out
 		
-		Tiff:
-			Solved Issues(s)
-				§ Sample 13 --> Orientation problem (correct image is getting rotated)
-		
-			Persisting Issues
-				§ Sample 3, 4, 8, 10 --> 1 or 2 columns not getting extracted
-				§ Sample 9 --> Last row not getting extracted because of the missing horizontal line
-				§ Sample 12 --> Text blocks are getting detected due to unwanted line in the end of the document
-		
-		Total Good Samples  : 23(previous 15)
-		
-		Addressed Issues:
-			○ Extra empty rows and columns
-			○ Underline and strikethrough issue
-			○ Extra rows and columns due to empty cells or split of rows
-			○ Orientation problem (tiff sample 13, image sample 8)
-			○ Unwanted texts due to horizontal line near the table
-			○ Column shift and merge for tables without lines or vertical lines
-			○ PDF issue (overall extraction)
-		
-		Persisting issues:
-			○ 1 or 2 columns not getting detected (tiff sample 3,4,8,9,10 and Image sample 4,6,7)
-			○ Last row not getting extracted because of the missing horizontal line in the end (tiff sample 9)
-			○ Text blocks are getting detected due to unwanted line in the end of the document (tiff sample 12)
-			○ Content of column mapped with wrong rows, due to which extra rows are added
-			○ Content of column mapped with wrong rows, due to which extra rows are added
-			○ Headings missed out (MEAG sample, with only horizontal line in header)
-		
-		Known Issues:
-			○ Pytesseract issue
-			○ Logo/Header identified as table
+		Persisting Issues
+			§ One extra row was extracted, which has affected the extraction of next row too.
+				□ MEAG VLA A
+				□ MEAG VLA B
+				□ MEAG VENUS Multi Smart
+				□ MEAG VENUS Long Short Strategy
+				□ MEAG VENUS Asian Equities
+				□ MEAG SP13 Absolute Return
+				□ MEAG HMR 1 Renten 1
+	
+	Tiff:
+		Solved Issues(s)
+			§ Sample 13 --> Orientation problem (correct image is getting rotated)
+			§ Sample 9 --> Last row not getting extracted because of the missing horizontal line
+	
+		Persisting Issues
+			§ Sample 4,5,8,10 --> 1 or 2 columns not getting extracted
+			§ Sample 12 --> Text blocks are getting detected due to unwanted line in the end of the document
+			§ Sample 3,4,--> rows merged or not extracted
+			§ Sample 8,10,14 --> Extra rows getting extracted
+	
+	Total Good Samples  : 40/65(previous 23)
+	Image: 10/15
+	PDF: 8/14
+	Tiff: 7/14
+	MEAG: 15/22
+	
+	Addressed Issues:
+		○ Extra empty rows and columns
+		○ Underline and strikethrough issue
+		○ Extra rows and columns due to empty cells or split of rows
+		○ Unwanted texts due to horizontal line near the table
+		○ Column shift and merge for tables without lines or vertical lines
+		○ PDF issue (overall extraction)
+		○  Last row not getting extracted because of the missing horizontal line
+		○ Content of column mapped with wrong rows, due to which extra rows are added
+		○ Headings missed out
+	
+	Persisting issues:
+		○ 1 or 2 columns not getting detected
+		○ Text blocks are getting detected due to unwanted line in the end of the document
+		○ Merging rows
+		○ Missing rows
+		○ Data not getting extracted at all
+		○ Extra rows getting extracted
+		○ Strikethrough text getting extracted
+	
+	Known Issues:
+		○ Pytesseract issue
+		○ Logo/Header identified as table
+		○ Orientation issue
+		○ Image noise leading to poor extraction
+
 
 	
 
