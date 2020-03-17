@@ -1,4 +1,4 @@
-3rd iteration of  testing for table with lines after bug fixing:
+4th iteration of  testing for table with lines after bug fixing:
 
 	Scenarios Covered:
 		○ Table with proper horizontal and vertical lines
@@ -8,27 +8,29 @@
 		○ Merging same tables in continuous pages
 		○ Tables with only horizontal line in the heading
 		○ Tables with missing horizontal line in the last row
-		○ Tables with strikethrough and underline
+		○ Tables with strikethrough and underline text
 
 	Images:
 		Solved Issues(s)
 			§ Sample 5 --> 1 or 2 columns not getting extracted
-	
-		Persisting Issues
 			§ Sample 6,7 --> 1 or 2 columns not getting extracted
 			§ Sample 5 --> Not getting extracted properly (merged rows, missing rows) was working properly in the 1st iteration
-			§ Sample 13 -- No data extracted 
+			§ Sample 13 --> No data extracted 
+	
+		Persisting Issues
 			§ Sample 14 -- Not getting extracted
+			§ Sample 11,12,7 -->  Extra row with some text is getting added at the last
 	
 	PDF:
 		Solved Issues(s)
 			§ On the whole the extraction is not good.
 			§ Content of column mapped with wrong rows, due to which extra rows are added.
-			
-		Persisting Issues
 			§ Sample 14,13,9 --> Rows are getting merged. (Image quality is very low)
 			§ Sample 6,11,12,14 --> Some table are not getting extracted
 			§ Sample 8 --> Strikethrough texts are getting extracted
+			
+		Persisting Issues
+			§ Sample 10,11,4,5,7,8 -->  Extra row with some text is getting added at the last
 	
 	MEAG:
 		Solved Issues(s)
@@ -36,8 +38,6 @@
 			§ Unwanted texts due to horizontal line near the table
 			§ Content of column mapped with wrong rows, due to which extra rows are added
 			§ Headings missed out
-		
-		Persisting Issues
 			§ One extra row was extracted, which has affected the extraction of next row too.
 				□ MEAG VLA A
 				□ MEAG VLA B
@@ -46,23 +46,29 @@
 				□ MEAG VENUS Asian Equities
 				□ MEAG SP13 Absolute Return
 				□ MEAG HMR 1 Renten 1
+		
+		Persisting Issues: None
+			
 	
 	Tiff:
 		Solved Issues(s)
 			§ Sample 13 --> Orientation problem (correct image is getting rotated)
 			§ Sample 9 --> Last row not getting extracted because of the missing horizontal line
-	
-		Persisting Issues
 			§ Sample 4,5,8,10 --> 1 or 2 columns not getting extracted
 			§ Sample 12 --> Text blocks are getting detected due to unwanted line in the end of the document
 			§ Sample 3,4,--> rows merged or not extracted
 			§ Sample 8,10,14 --> Extra rows getting extracted
 	
-	Total Good Samples  : 40/65(previous 23)
-	Image: 10/15
+		Persisting Issues
+			§ Sample 10,5,7,8,9 --> Extra row with some text is getting added at the last
+	
+	
+	Total Good Samples  : 50/65 (previous 40) 
+	Image: 11/15
 	PDF: 8/14
-	Tiff: 7/14
-	MEAG: 15/22
+	Tiff: 9/14
+	MEAG: 22/22
+	
 	
 	Addressed Issues:
 		○ Extra empty rows and columns
@@ -71,11 +77,9 @@
 		○ Unwanted texts due to horizontal line near the table
 		○ Column shift and merge for tables without lines or vertical lines
 		○ PDF issue (overall extraction)
-		○  Last row not getting extracted because of the missing horizontal line
+		○ Last row not getting extracted because of the missing horizontal line
 		○ Content of column mapped with wrong rows, due to which extra rows are added
 		○ Headings missed out
-	
-	Persisting issues:
 		○ 1 or 2 columns not getting detected
 		○ Text blocks are getting detected due to unwanted line in the end of the document
 		○ Merging rows
@@ -84,11 +88,34 @@
 		○ Extra rows getting extracted
 		○ Strikethrough text getting extracted
 	
+	Persisting issues:
+		○ Data not getting extracted at all
+		○ Extra row with some text getting added at the last
+		○ Sub scenarios to be addressed for table with lines: (tested with random samples from internet/other use cases)
+			§ Tables with dotted lines
+			§ Tables with grey lines or any light colored lines.
+			§ Tables with embossed/3D lines
+			§ Tables with background color in the heading (whole table getting detected as single column)
+			§ Tables with disjoint lines
+			§ Skew correction failing in some scenarios
+	
 	Known Issues:
 		○ Pytesseract issue
 		○ Logo/Header identified as table
 		○ Orientation issue
 		○ Image noise leading to poor extraction
+
+
+	Code issues:
+		○ Confidence score extraction to be revisited. Below are the issues faced.
+			§ Confidence score not extracted for numbers
+			§ Confidence score > 100 is coming up
+			§ Int conversion issue coming up
+		○ Image coordinate is < 0, which leads to error while cropping and saving the image
+		○ Threading issues (sometimes leads to memory issue)
+		○ Code optimization should be done, as turnaround time is very high (2 to 6 mins for single page based on rows and columns)
+	
+
 
 
 	
